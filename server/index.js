@@ -9,6 +9,10 @@ app.use(express.json())
 app.use(cors())
 
 app.post('/contact', async function ({ body: { name, email, subject, message } }, res) {
+  // headers for vercel serverless functions
+  res.setHeader('Content-Type', 'text/html')
+  res.setHeader('Cache-Control', 's-max-age=1, stale-while-revalidate')
+
   console.log('Contact Name:', name)
   console.log('Email:', email)
   console.log('Subject:', subject)
@@ -62,3 +66,5 @@ app.post('/contact', async function ({ body: { name, email, subject, message } }
 app.listen(3001, function () {
   console.log('Server listening on port 3001')
 })
+
+module.exports = app
