@@ -1,0 +1,35 @@
+.main-wrapper {
+    background-color: black;
+    min-height: 100%;
+    height: max-content;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+}
+
+.darkMain-wrapper {
+    background-color: #E5E5E5;
+}
+
+.main-left-drower {
+width: 30%;
+/* background-color: #242526; */
+color: white;
+display: flex;
+flex-direction: column;
+max-width: 250px;
+padding-left: 10px;
+padding-right: 5px;
+ /* @TODO set min max width*/
+}
+
+.main-right-drower {
+    width: 15%;
+    max-width: 108px;
+}
+
+.main-content {
+    width: auto;
+    max-width: 970px;
+}
