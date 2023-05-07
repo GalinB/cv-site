@@ -30,40 +30,40 @@ export default function Right(props) {
           onClick={() => {
             props.scrollToSection('Home')
           }}
-          onMouseEnter={() => handleIconHover('Home')}
-          onMouseLeave={handleIconLeave}
+          // onMouseEnter={() => handleIconHover('Home')}
+          // onMouseLeave={handleIconLeave}
         />
         <BsFillInfoCircleFill
           className="iconr"
           onClick={() => {
             props.scrollToSection('About')
           }}
-          onMouseEnter={() => handleIconHover('About')}
-          onMouseLeave={handleIconLeave}
+          // onMouseEnter={() => handleIconHover('About')}
+          // onMouseLeave={handleIconLeave}
         />
         <FaUniversity
           className="iconr"
           onClick={() => {
             props.scrollToSection('Projects')
           }}
-          onMouseEnter={() => handleIconHover('Projects')}
-          onMouseLeave={handleIconLeave}
+          // onMouseEnter={() => handleIconHover('Projects')}
+          // onMouseLeave={handleIconLeave}
         />
         <MdWorkHistory
           className="iconr"
           onClick={() => {
             props.scrollToSection('WorkHistory')
           }}
-          onMouseEnter={() => handleIconHover('WorkHistory')}
-          onMouseLeave={handleIconLeave}
+          // onMouseEnter={() => handleIconHover('WorkHistory')}
+          // onMouseLeave={handleIconLeave}
         />
         <MdEmail
           className="iconr"
           onClick={() => {
             props.scrollToSection('Contact')
           }}
-          onMouseEnter={() => handleIconHover('Contact')}
-          onMouseLeave={handleIconLeave}
+          // onMouseEnter={() => handleIconHover('Contact')}
+          // onMouseLeave={handleIconLeave}
         />
       </div>
       <div className="modal" style={{ display: showModal ? 'block' : 'none' }}>
