@@ -264,7 +264,6 @@ padding: 5%;
  
   display: flex;
   flex-direction: column;
-  gap: 10px;
   margin-top: 10px;
   }
 
@@ -342,11 +341,17 @@ gap: 0.2rem;
   font-size: 1rem;
 }
 
+.darkMiddle6h1 {
+  color:black;
+  font-size: 1rem;
+}
+
 .contactForm {
   padding-left: 15px;
   padding-top: 10px;
   height: 100%;;
-  margin: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
   background-color: #242526;
   display: flex;
   flex-direction: column;
@@ -438,6 +443,8 @@ gap: 0.2rem;
 }
 
 .darkWrapper {
+  padding-left: 1rem;
+  padding-right: 1rem;
   display: flex;
   flex-direction: row;
   background-color: #FFFFFF;
@@ -446,7 +453,6 @@ gap: 0.2rem;
 .darkMiddle2 {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   margin-top: 10px;
 }
 
@@ -469,7 +475,8 @@ gap: 0.2rem;
   padding-left: 15px;
   padding-top: 10px;
   height: 100%;;
-  margin: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
   background-color: #FFFFFF;
   display: flex;
   flex-direction: column;
