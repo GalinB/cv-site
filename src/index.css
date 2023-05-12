@@ -1,4 +1,7 @@
-html,
+html {
+  min-width: 1100px;
+}
+
 body,
 #root {
   width: 100%;

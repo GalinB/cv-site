@@ -1,5 +1,4 @@
 
-
 .App1 {
   height: 100%;
   width: 100%;
@@ -596,4 +595,9 @@ gap: 0.2rem;
   }
 }
 
+@media (max-width: 500px) {
+  .rightdiv {
+    flex-direction: row;
+  }
+}
 

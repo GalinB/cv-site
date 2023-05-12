@@ -17,7 +17,7 @@ export default forwardRef(({ engageLaserMode, laserMode, darkMode, scrollToSecti
     >
       <div className="wrapper2">
         <h1 className={darkMode ? 'middle1h1' : 'darkMiddle1h1'}>
-          I'm Galin Bozhkov
+          Galin Bozhkov
           <br></br>
           Front-End Developer
         </h1>

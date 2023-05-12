@@ -1,3 +1,4 @@
+
 .main-wrapper {
     background-color: black;
     min-height: 100%;
@@ -21,7 +22,7 @@ flex-direction: column;
 max-width: 250px;
 padding-left: 10px;
 padding-right: 5px;
- /* @TODO set min max width*/
+/* @TODO set min max width*/
 }
 
 .main-right-drower {
@@ -32,4 +33,14 @@ padding-right: 5px;
 .main-content {
     width: auto;
     max-width: 970px;
+}
+
+@media (max-width: 500px) {
+    .main-wrapper {
+      flex-direction: column-reverse;
+    }
+    .main-right-drower {
+        width: 100%;
+        max-width: 100%;
+    }
 }
