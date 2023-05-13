@@ -1,4 +1,4 @@
-import { sendEmail } from '../utils/sendEmailUtils.mjs'
+import { sendEmail } from '../utils/sendEmailUtils.js'
 
 module.exports = (req, res) => {
   const { name, email, message } = req.body

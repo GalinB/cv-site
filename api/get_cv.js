@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { sendEmail } from '../utils/sendEmailUtils.mjs'
+import { sendEmail } from '../utils/sendEmailUtils.js'
 
 module.exports = (req, res) => {
   whereCvDownloadFrom(req).then((resp) => {
