@@ -1,15 +1,13 @@
 import fs from 'fs'
-import path from 'path'
 
-import { sendEmail } from '../utils/sendEmailUtils.js'
+import { sendEmail } from '../utils/sendEmailUtils.mjs'
 
 module.exports = (req, res) => {
   whereCvDownloadFrom(req).then((resp) => {
     sendEmail({ subject: 'Someone is downloading your CV', message: JSON.stringify(resp) })
   })
 
-  const filePath = path.join(__dirname, 'data/Galin_Bozhkov_-_Front_End_Developer_.pdf')
-  fs.readFile(filePath, (err, data) => {
+  fs.readFile('../data/Galin_Bozhkov_-_Front_End_Developer_.pdf', (err, data) => {
     if (err) {
       res.status(500).send('Error reading file')
       return
