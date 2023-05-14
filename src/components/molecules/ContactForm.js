@@ -16,21 +16,25 @@ function ContactForm({ darkMode }) {
       subject,
       message,
     }
-    fetch('http://localhost:3001/contact', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Success:', data)
-        setSubmitted(true)
+
+    if (data['name'] && data['email'] && data['subject'] && data['message']) {
+      fetch('/api/send_email', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          Accept: '*/*',
+        },
+        body: JSON.stringify(data),
       })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
+        .then((response) => response.text())
+        .then((data) => {
+          console.log('Success:', data)
+          setSubmitted(true)
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+    }
   }
 
   useEffect(() => {
