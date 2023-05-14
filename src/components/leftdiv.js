@@ -85,9 +85,34 @@ export default function Left({ laserMode, darkMode }) {
         <div className="languageSkillFr"></div>
       </div>
       {separator}
-      <div className="cv" ref={cvRef}>
+      <div className="cv" ref={cvRef} onClick={handleDownloadCv}>
         Download CV 📧
       </div>
     </div>
   )
+
+  async function handleDownloadCv(evt) {
+    const response = await fetch('http://192.168.0.5:3001/api/get_cv')
+    
+    if (!response.ok) {
+      throw new Error('HTTP error ' + response.status)
+    }
+
+    const blob = await response.blob()
+    const url = window.URL.createObjectURL(blob)
+    const link = document.createElement('a')
+    link.href = url
+    const contentDisposition = response.headers.get('content-disposition')
+    let fileName = 'Galin_Bozhkov_-_Front_End_Developer_.pdf'
+    if (contentDisposition) {
+      const fileNameMatch = contentDisposition.match(/filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/)
+      if (fileNameMatch.length > 1) {
+        fileName = fileNameMatch[1].replace(/['"]/g, '')
+      }
+    }
+    link.setAttribute('download', fileName)
+    document.body.appendChild(link)
+    link.click()
+    document.body.removeChild(link)
+  }
 }

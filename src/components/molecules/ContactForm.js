@@ -16,14 +16,16 @@ function ContactForm({ darkMode }) {
       subject,
       message,
     }
-    fetch('http://localhost:3001/contact', {
+
+    fetch('http://192.168.0.5:3001/api/send_email', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
+        'content-type': 'application/json',
+        "Accept": "*/*"
       },
       body: JSON.stringify(data),
     })
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((data) => {
         console.log('Success:', data)
         setSubmitted(true)
