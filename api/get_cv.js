@@ -2,10 +2,25 @@ import fs from 'fs'
 import path from 'path'
 
 import { sendEmail } from '../utils/sendEmailUtils.js'
+import { allowCors } from '../utils/corsUtils.js'
 
 const ipRegex = /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/g
 
-module.exports = async (req, res) => {
+async function whereCvDownloadFrom(req) {
+  const ip = req.headers['x-forwarded-for'].match(ipRegex)[0] || req.connection.remoteAddress
+  if (ip) {
+    const response = await fetch(`http://ip-api.com/json/${ip}`)
+    const responseData = await response.json()
+
+    if (responseData['status'] === 'fail') {
+      throw new Error(`Failed to find ip address ${ip}`)
+    } else {
+      return responseData
+    }
+  }
+}
+
+const getCv = async (req, res) => {
   try {
     const resp = await whereCvDownloadFrom(req)
     await sendEmail({
@@ -35,16 +50,4 @@ module.exports = async (req, res) => {
   })
 }
 
-async function whereCvDownloadFrom(req) {
-  const ip = req.headers['x-forwarded-for'].match(ipRegex)[0] || req.connection.remoteAddress
-  if (ip) {
-    const response = await fetch(`http://ip-api.com/json/${ip}`)
-    const responseData = await response.json()
-
-    if (responseData['status'] === 'fail') {
-      throw new Error(`Failed to find ip address ${ip}`)
-    } else {
-      return responseData
-    }
-  }
-}
+module.exports = allowCors(getCv)

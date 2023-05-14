@@ -1,12 +1,7 @@
 import { sendEmail } from '../utils/sendEmailUtils.js'
+import { allowCors } from '../utils/corsUtils.js'
 
-module.exports = async (req, res) => {
-  // Handle OPTIONS (preflight) requests
-  if (req.method === 'OPTIONS') {
-    res.status(200).end()
-    return
-  }
-
+const sendEmail = async (req, res) => {
   // Handle other requests
   const { name, email, message } = req.body
 
@@ -20,3 +15,5 @@ module.exports = async (req, res) => {
       res.status(500).send(err)
     })
 }
+
+module.exports = allowCors(sendEmail)
