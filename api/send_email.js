@@ -1,5 +1,5 @@
-import { sendEmail } from '../utils/sendEmailUtils.js'
-import { allowCors } from '../utils/corsUtils.js'
+const { sendEmail } = require('../utils/sendEmailUtils.js')
+const { allowCors } = require('../utils/corsUtils.js')
 
 const sendEmail = async (req, res) => {
   // Handle other requests

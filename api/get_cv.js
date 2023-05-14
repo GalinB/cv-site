@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-import { sendEmail } from '../utils/sendEmailUtils.js'
-import { allowCors } from '../utils/corsUtils.js'
+const { sendEmail } = require('../utils/sendEmailUtils.js')
+const { allowCors } = require('../utils/corsUtils.js')
 
 const ipRegex = /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/g
 
