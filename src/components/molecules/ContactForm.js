@@ -18,7 +18,7 @@ function ContactForm({ darkMode }) {
     }
 
     if (data['name'] && data['email'] && data['subject'] && data['message']) {
-      fetch('https://galinbozhkov.com/api/send_email', {
+      fetch('/api/send_email', {
         method: 'POST',
         headers: {
           'content-type': 'application/json',

@@ -50,4 +50,4 @@ const getCv = async (req, res) => {
   })
 }
 
-module.exports = getCv
+module.exports = allowCors(getCv)
