@@ -16,4 +16,4 @@ const sendEmail = async (req, res) => {
     })
 }
 
-module.exports = allowCors(sendEmail)
+module.exports = sendEmail
