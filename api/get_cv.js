@@ -6,8 +6,6 @@ import { sendEmail } from '../utils/sendEmailUtils.js'
 const ipRegex = /\b((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)(\.|$)){4}\b/g
 
 module.exports = async (req, res) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-
   try {
     const resp = await whereCvDownloadFrom(req)
     await sendEmail({
