@@ -17,22 +17,24 @@ function ContactForm({ darkMode }) {
       message,
     }
 
-    fetch('http://192.168.0.5:3001/api/send_email', {
-      method: 'POST',
-      headers: {
-        'content-type': 'application/json',
-        "Accept": "*/*"
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.text())
-      .then((data) => {
-        console.log('Success:', data)
-        setSubmitted(true)
+    if (data['name'] && data['email'] && data['subject'] && data['message']) {
+      fetch('https://galinbozhkov.com/api/send_email', {
+        method: 'POST',
+        headers: {
+          'content-type': 'application/json',
+          Accept: '*/*',
+        },
+        body: JSON.stringify(data),
       })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
+        .then((response) => response.text())
+        .then((data) => {
+          console.log('Success:', data)
+          setSubmitted(true)
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+    }
   }
 
   useEffect(() => {

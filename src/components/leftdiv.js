@@ -92,8 +92,8 @@ export default function Left({ laserMode, darkMode }) {
   )
 
   async function handleDownloadCv(evt) {
-    const response = await fetch('http://192.168.0.5:3001/api/get_cv')
-    
+    const response = await fetch('https://galinbozhkov.com/api/get_cv')
+
     if (!response.ok) {
       throw new Error('HTTP error ' + response.status)
     }
