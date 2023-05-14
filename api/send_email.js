@@ -1,7 +1,7 @@
 const { sendEmail } = require('../utils/sendEmailUtils.js')
 const { allowCors } = require('../utils/corsUtils.js')
 
-const sendEmail = async (req, res) => {
+const sendEmailHandler = async (req, res) => {
   // Handle other requests
   const { name, email, message } = req.body
 
@@ -16,4 +16,4 @@ const sendEmail = async (req, res) => {
     })
 }
 
-module.exports = allowCors(sendEmail)
+module.exports = allowCors(sendEmailHandler)
