@@ -3,8 +3,10 @@ import nodemailer from 'nodemailer'
 
 dotenv.config({ path: '.env' })
 
-const gmailEmail = process.env.GMAIL_EMAIL
-const gmailPassword = process.env.GMAIL_PASSWORD
+// const gmailEmail = process.env.GMAIL_EMAIL
+// const gmailPassword = process.env.GMAIL_PASSWORD
+
+const { GMAIL_EMAIL: gmailEmail, GMAIL_PASSWORD: gmailPassword } = process.env
 
 const emailClient = nodemailer.createTransport({
   host: 'smtp.gmail.com',
